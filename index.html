@@ -3,49 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mengalihkan ke Portal KKGS...</title>
-
-    <!-- Redirect utama, jalan walau JavaScript mati -->
-    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxOMRn097gaC-Qm5kfyS2P730DquRdGYnPkABPw1hXuM29CV4q1sO928aEvY-w514d_/exec">
-
-    <script>
-        const gasUrl = "https://script.google.com/macros/s/AKfycbxOMRn097gaC-Qm5kfyS2P730DquRdGYnPkABPw1hXuM29CV4q1sO928aEvY-w514d_/exec";
-
-        const targetUrl = gasUrl + window.location.search + window.location.hash;
-
-        window.location.href = targetUrl;
-    </script>
-
+    <title>Portal Koperasi KKGS</title>
     <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-            background: #f4f7f6;
-            color: #1f2933;
-            text-align: center;
-            padding: 24px;
-        }
-
-        a {
-            color: #0f766e;
-            font-weight: bold;
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #f4f7f6; font-family: sans-serif; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
     </style>
 </head>
 <body>
-    <div>
-        <p>Mengalihkan ke Portal Koperasi KKGS...</p>
-        <p>
-            Jika tidak otomatis terbuka,
-            <a href="https://script.google.com/macros/s/AKfycbxOMRn097gaC-Qm5kfyS2P730DquRdGYnPkABPw1hXuM29CV4q1sO928aEvY-w514d_/exec">
-                klik di sini
-            </a>.
-        </p>
-    </div>
+
+    <iframe id="gas-frame" title="Portal Koperasi KKGS"></iframe>
+
+    <script>
+        // 1. Ini link asli Web App Google Script Anda
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbxOMRn097gaC-Qm5kfyS2P730DquRdGYnPkABPw1hXuM29CV4q1sO928aEvY-w514d_/exec";
+        
+        // 2. Tangkap parameter dari kkgs.web.id (misal: ?page=neraca_public)
+        const queryString = window.location.search; 
+        
+        // 3. Gabungkan dan masukkan ke dalam Iframe
+        document.getElementById("gas-frame").src = scriptUrl + queryString;
+    </script>
+
 </body>
 </html>
